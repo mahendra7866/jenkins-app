@@ -93,6 +93,10 @@ pipeline {
                 '''
             }
         }
+         stage(Approval) {
+            timeout(time: 1, unit: 'MINUTES') {
+                   input message: 'Approve or not ', ok: 'Yes'
+         }
 
            stage('Deploy') {
             agent {
