@@ -93,9 +93,11 @@ pipeline {
                 '''
             }
         }
-         stage('Approval') {
+        stage('Approval') {
+            steps{
             timeout(time: 1, unit: 'MINUTES') {
                    input message: 'Approve or not ', ok: 'Yes'
+            }
          }
         }
 
